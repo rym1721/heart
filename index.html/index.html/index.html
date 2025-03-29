@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Котёнок с сердечком</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            margin: 0;
+            flex-direction: column;
+        }.container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .message {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 200px;
+            color: aliceblue;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+    .kitten {
+        width: 150px;
+        height: auto;
+        position: absolute;
+        bottom: -100px;
+        z-index: 1;
+    }
+
+    .heart {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(206, 13, 13);
+        transform: rotate(-45deg);
+        animation: pulse 1s infinite;
+        top: 20px;
+        z-index: 2;
+    }
+
+    .heart::before,
+    .heart::after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: rgb(206, 13, 13);
+        border-radius: 50%;
+    }
+
+    .heart::before {
+        top: -20px;
+        left: 0;
+    }
+
+    .heart::after {
+        top: 0;
+        left: 20px;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1) rotate(-45deg); }
+        50% { transform: scale(1.1) rotate(-45deg); }
+        100% { transform: scale(1) rotate(-45deg); }
+    }
+</style>
+
+</head>
+<body>
+    <div class="message">ИДИТЕ НАХУЙ</div>
+    <div class="container">
+        <div class="heart"></div>
+        <img src="https://i.pinimg.com/736x/ec/af/a9/ecafa9f5acbf746c997ca8e8c1eda5cc.jpg" alt="Котёнок" class="kitten">
+    </div><script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const heart = document.querySelector(".heart");
+        heart.style.opacity = "0";
+        heart.style.transition = "opacity 1.5s ease-in-out";
+        
+        setTimeout(() => {
+            heart.style.opacity = "1";
+        }, 500);
+    });
+</script>
+
+</body>
+</html>
